@@ -1,0 +1,25 @@
+{
+  "name": "videogame-website",
+  "version": "0.0.1",
+  "description": "This is the main repo for the video game website.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/91RhysG/WebsiteVideoGame.git"
+  },
+  "author": "Rhys Gillham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/91RhysG/WebsiteVideoGame/issues"
+  },
+  "homepage": "https://github.com/91RhysG/WebsiteVideoGame#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

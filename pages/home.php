@@ -8,6 +8,13 @@
 <?php include_once("../shared/head.php"); ?>
 
 <body>
+    <script type='module'>
+        import {
+            Connection
+        } from '../scripts/main.js';
+
+        Connection();
+    </script>
     <?php include_once("../shared/navbar.php"); ?>
 
     <div class="row">
