@@ -4,6 +4,10 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<meta name="description" content="Browse Games">
+<meta name="keywords" content="one, two, three">
+
+<title>Home Page</title>
 
 <?php include_once("../shared/head.php"); ?>
 
@@ -15,7 +19,15 @@
             LOREM
         </aside>
         <main class="col-8 outline">
-            <h1>GAME PAGE</h1>
+            <h1>Game PAGE</h1>
+            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Game', '*', 'GameName');
+            while ($entry = $sqlResults->fetch())
+            {
+                echo    '<p>
+                            ' . $entry['GameName'] . '
+                        </p>';
+            } ?>
+
         </main>
         <aside class="col-2 outline">
             LOREM

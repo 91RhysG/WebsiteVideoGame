@@ -16,8 +16,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./console.php">
-                Console
+            <a class="nav-link" href="./platform.php">
+                Platform
             </a>
         </li>
         <li class="nav-item">

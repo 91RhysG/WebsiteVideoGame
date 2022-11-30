@@ -18,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/91RhysG/WebsiteVideoGame/issues"
   },
-  "homepage": "https://github.com/91RhysG/WebsiteVideoGame#readme",
-  "dependencies": {
-    "mysql": "^2.18.1"
-  }
+  "homepage": "https://github.com/91RhysG/WebsiteVideoGame#readme"
 }

@@ -1,3 +1,11 @@
+
+
+/*
+
+                    ----------- CONNECTION TO NODE CODE -----------
+
+This is the node.js portion of the code and cannot be run in the browser, I am keeping this for if/when I reach the node.js backend integration.
+
 console.log("main js loaded");
 
 
@@ -29,3 +37,4 @@ function Connection()
 }
 
 export { Connection };
+*/

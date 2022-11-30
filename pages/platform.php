@@ -4,7 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<meta name="description" content="Browse Companies">
+<meta name="description" content="Browse Platforms">
 <meta name="keywords" content="one, two, three">
 
 <title>Home Page</title>
@@ -19,12 +19,12 @@
             LOREM
         </aside>
         <main class="col-8 outline">
-            <h1>COMPANY PAGE</h1>
-            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
+            <h1>Platform PAGE</h1>
+            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Platform', '*', 'PlatformName');
             while ($entry = $sqlResults->fetch())
             {
                 echo    '<p>
-                            ' . $entry['CompanyName'] . '
+                            ' . $entry['PlatformName'] . '
                         </p>';
             } ?>
 
@@ -33,7 +33,6 @@
             LOREM
         </aside>
     </div>
-
 
     <?php include_once("../shared/footer.php"); ?>
 
