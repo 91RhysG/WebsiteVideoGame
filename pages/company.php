@@ -13,20 +13,19 @@
 
 <body>
     <?php include_once("../shared/navbar.php"); ?>
-
+    <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
+    $information = $dbFunctions->ConvertToCompany($sqlResults);
+    ?>
     <div class="row">
         <aside class="col-2 outline">
             LOREM
         </aside>
         <main class="col-8 outline">
             <h1>COMPANY PAGE</h1>
-            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
-            while ($entry = $sqlResults->fetch())
-            {
-                echo    '<p>
-                            ' . $entry['CompanyName'] . '
-                        </p>';
-            } ?>
+            <script type=text/javascript>
+                var information = <?php echo json_encode($information); ?>;
+            </script>
+
 
         </main>
         <aside class="col-2 outline">
