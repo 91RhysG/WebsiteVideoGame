@@ -9,21 +9,32 @@
 
 <title>Home Page</title>
 
-<?php include_once("../shared/head.php"); ?>
+<head>
+    <?php include_once("../shared/head.php"); ?>
+    <script type='text/javascript' src='../models/Company.js'></script>
+    <?php
+    $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
+    $information = $dbFunctions->ConvertToCompany($sqlResults);
+    ?>
+</head>
+
 
 <body>
     <?php include_once("../shared/navbar.php"); ?>
-    <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
-    $information = $dbFunctions->ConvertToCompany($sqlResults);
-    ?>
     <div class="row">
         <aside class="col-2 outline">
             LOREM
         </aside>
-        <main class="col-8 outline">
+        <main class="col-8 outline container">
             <h1>COMPANY PAGE</h1>
+            <section id="mainContent" class="row align-items-start">
+
+            </section>
             <script type=text/javascript>
-                var information = <?php echo json_encode($information); ?>;
+                const companyList = GenerateCompanyList(<?php echo json_encode($information); ?>);
+                companyList.forEach(company => {
+                    company.toCard()
+                });
             </script>
 
 

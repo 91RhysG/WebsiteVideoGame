@@ -1,5 +1,3 @@
-
-
 /*
 
                     ----------- CONNECTION TO NODE CODE -----------
@@ -38,3 +36,13 @@ function Connection()
 
 export { Connection };
 */
+GenerateCompanyList = (information) => {
+    let companyList = [];
+    information.forEach(company =>
+    {
+        let newCompany = new Company(company[0], company[2], company[1], company[3], company[4], company[5]);
+        companyList.push(newCompany);        
+    });
+    console.log(companyList);
+    return companyList;
+};

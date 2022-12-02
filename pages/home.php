@@ -9,7 +9,9 @@
 
 <title>Home Page</title>
 
-<?php include_once("../shared/head.php"); ?>
+<head>
+    <?php include_once("../shared/head.php"); ?>
+</head>
 
 <body>
     <?php include_once("../shared/navbar.php"); ?>

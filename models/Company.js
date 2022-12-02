@@ -1,16 +1,42 @@
 class Company {
-  constructor() {
-    this.companyID = -1;
-    this.companyName = "No Name";
-    this.addressID = -1;
-    this.companyProfile = "Blank Profile";
-    this.founded = "1900";
-    this.currentLogo = "Path to file";
+  constructor(
+    companyID,
+    companyName,
+    addressID,
+    companyProfile,
+    founded,
+    currentLogo
+  ) {
+    this.companyID = companyID;
+    this.companyName = companyName;
+    this.addressID = addressID;
+    this.companyProfile = companyProfile;
+    this.founded = founded;
+    this.currentLogo = currentLogo;
   }
 
-  GenerateCard() {
-    document.writeln(`Company Name ${companyName} and founded in ${founded}`);
-  }
+  toString = () => {
+    document.writeln(
+      `Company Name ${this.companyName} and founded in ${this.founded} <br>`
+    );
+  };
+
+  toCard = () =>
+  {
+    let node = document.getElementById('mainContent')
+    console.log('inside tocard')
+    node.innerHTML += `
+      <section class="cardLayout col-4 row outline">
+        <div class="col">
+          <div>Company Name: ${this.companyName}</div>
+          <div>Founded: ${this.founded}</div>
+        </div>
+        <div class="col">
+          <div>Logo: ${this.logoPath}</div>
+          <div>Profile: ${this.CompanyProfile}</div>
+        </div>
+      </section>`;
+  };
 
   //Set all
   set CompanyID(companyID) {
