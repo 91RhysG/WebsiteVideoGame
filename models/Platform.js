@@ -1,119 +1,128 @@
-class Platform
-{
-    constructor()
-    {
-        this.platformID = -1;
-        this.companyID = -1;
-        this.manufacturerID = -1;
-        this.platformName = "platform name";
-        this.platformModel = 'platform model';
-        this.platformFamily = 'platform family';
-        this.platformLogo = 'platform logo';
-        this.numberShipped = 0;
-        this.firstReleased = '1900';
-        this.platformProfile = 'platform profile';
-    }
+class Platform {
+  constructor(
+    platformID,
+    companyID,
+    manufacturerID,
+    platformName,
+    platformModel,
+    platformFamily,
+    platformLogo,
+    numberShipped,
+    firstReleased,
+    platformProfile
+  ) {
+    this.platformID = platformID;
+    this.companyID = companyID;
+    this.manufacturerID = companyID;
+    this.platformName = platformName;
+    this.platformModel = platformModel;
+    this.platformFamily = platformFamily;
+    this.platformLogo = platformLogo;
+    this.numberShipped = numberShipped;
+    this.firstReleased = firstReleased;
+    this.platformProfile = platformProfile;
+  }
 
-    //Set all
-    set PlatformID(platformID)
-    {
-        this.platformID = platformID;
-    }
+  toString = () => {
+    document.writeln(
+      `Company Name ${this.gameName} and has shipped ${this.numberShipped} <br>`
+    );
+  };
 
-    set CompanyID(companyID)
-    {
-        this.companyID = companyID;
-    }
+  toCard = () => {
+    let node = document.getElementById("mainContent");
+    node.innerHTML += `
+      <section class="cardLayout col-3 row">
+        <div class="col">
+          <div>Platform Name: ${this.platformName}</div>
+          <div>Number Shipped: ${this.numberShipped}</div>
+        </div>
+        <div class="col">
+          <div>First Released: ${this.firstReleased}</div>
+          <div>Profile: ${this.platformProfile}</div>
+        </div>
+      </section>`;
+  };
 
-    set ManufacturerID(manufacturerID)
-    {
-        this.manufacturerID = manufacturerID;
-    }
+  //Set all
+  set PlatformID(platformID) {
+    this.platformID = platformID;
+  }
 
-    set PlatformName(platformName)
-    {
-        this.platformName = platformName;
-    }
+  set CompanyID(companyID) {
+    this.companyID = companyID;
+  }
 
-    set PlatformModel(platformModel)
-    {
-        this.platformModel = platformModel;
-    }
-    
-    set PlatformFamily(platformFamily)
-    {
-        this.platformFamily = platformFamily;
-    }
+  set ManufacturerID(manufacturerID) {
+    this.manufacturerID = manufacturerID;
+  }
 
-    set PlatformLogo(platformLogo)
-    {
-        this.platformLogo = platformLogo;
-    }
+  set PlatformName(platformName) {
+    this.platformName = platformName;
+  }
 
-    set NumberShipped(numberShipped)
-    {
-        this.numberShipped = numberShipped;
-    }
+  set PlatformModel(platformModel) {
+    this.platformModel = platformModel;
+  }
 
-    set FirstReleased(firstReleased)
-    {
-        this.firstReleased = firstReleased;
-    }
+  set PlatformFamily(platformFamily) {
+    this.platformFamily = platformFamily;
+  }
 
-    set PlatformProfile(platformProfile)
-    {
-        this.platformProfile = platformProfile;
-    }
+  set PlatformLogo(platformLogo) {
+    this.platformLogo = platformLogo;
+  }
 
+  set NumberShipped(numberShipped) {
+    this.numberShipped = numberShipped;
+  }
 
-    //Get All
-    get PlatformID()
-    {
-        return this.platformID;
-    }
+  set FirstReleased(firstReleased) {
+    this.firstReleased = firstReleased;
+  }
 
-    get CompanyID()
-    {
-        return this.companyID;
-    }
+  set PlatformProfile(platformProfile) {
+    this.platformProfile = platformProfile;
+  }
 
-    get ManufacturerID()
-    {
-        return this.manufacturerID;
-    }
+  //Get All
+  get PlatformID() {
+    return this.platformID;
+  }
 
-    get PlatformName()
-    {
-        return this.platformName;
-    }
+  get CompanyID() {
+    return this.companyID;
+  }
 
-    get PlatformModel()
-    {
-        return this.platformModel;
-    }
-    
-    get PlatformFamily()
-    {
-        return this.platformFamily;
-    }
+  get ManufacturerID() {
+    return this.manufacturerID;
+  }
 
-    get PlatformLogo()
-    {
-        return this.platformLogo;
-    }
+  get PlatformName() {
+    return this.platformName;
+  }
 
-    get NumberShipped()
-    {
-        return this.numberShipped;
-    }
+  get PlatformModel() {
+    return this.platformModel;
+  }
 
-    get FirstReleased()
-    {
-        return this.firstReleased;
-    }
+  get PlatformFamily() {
+    return this.platformFamily;
+  }
 
-    get PlatformProfile()
-    {
-        return this.platformProfile;
-    }
+  get PlatformLogo() {
+    return this.platformLogo;
+  }
+
+  get NumberShipped() {
+    return this.numberShipped;
+  }
+
+  get FirstReleased() {
+    return this.firstReleased;
+  }
+
+  get PlatformProfile() {
+    return this.platformProfile;
+  }
 }

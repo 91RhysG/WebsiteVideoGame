@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS Platform(
 -- create video game
 CREATE TABLE IF NOT EXISTS Game(
     GameID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	PlatformID INT NOT NULL,
     DeveloperID INT NOT NULL,
     GamePublisherID INT NOT NULL,
     GameName VARCHAR(150) NOT NULL,
@@ -55,6 +56,7 @@ CREATE TABLE IF NOT EXISTS Game(
     GameProfile TEXT NOT NULL,
     NumberShipped INT NOT NULL,
     FirstReleased DATE NOT NULL,
+	CONSTRAINT FK_PlatformID FOREIGN KEY (PlatformID) REFERENCES Platform(PlatformID) ON DELETE CASCADE,
     CONSTRAINT FK_Developer FOREIGN KEY (DeveloperID) REFERENCES Company(CompanyID) ON DELETE CASCADE,
     CONSTRAINT FK_GamePublisher FOREIGN KEY (GamePublisherID) REFERENCES Company(CompanyID) ON DELETE CASCADE
 );
@@ -219,6 +221,7 @@ VALUES(
     );
 -- add values video game
 INSERT INTO Game(
+		PlatformID,
         DeveloperID,
         GamePublisherID,
         GameName,
@@ -228,8 +231,9 @@ INSERT INTO Game(
         FirstReleased
     )
 VALUES(
-        1,
-        1,
+		1,
+        2,
+        3,
         'GameName',
         'Genre',
         'This is the profile for a game',

@@ -37,12 +37,74 @@ function Connection()
 export { Connection };
 */
 GenerateCompanyList = (information) => {
-    let companyList = [];
-    information.forEach(company =>
-    {
-        let newCompany = new Company(company[0], company[2], company[1], company[3], company[4], company[5]);
-        companyList.push(newCompany);        
-    });
-    console.log(companyList);
-    return companyList;
+  let companyList = [];
+  information.forEach((company) => {
+    let newCompany = new Company(
+      company['CompanyID'],
+      company['CompanyName'],
+      company['AddressID'],
+      company['CompanyProfile'],
+      company['Founded'],
+      company['CurrentLogo']
+    );
+    companyList.push(newCompany);
+  });
+  return companyList;
+};
+
+GenerateGameList = (information) => {
+  let gameList = [];
+  information.forEach((game) => {
+    let newGame = new Game(
+      game["GameID"],
+      game["PlatformID"],
+      game["DeveloperID"],
+      game["GamePublisherID"],
+      game["GameName"],
+      game["GameGenre"],
+      game["GameProfile"],
+      game["NumberShipped"],
+      game["FirstReleased"]
+    );
+    gameList.push(newGame);
+  });
+  return gameList;
+};
+
+GeneratePeripheralList = (information) => {
+  let peripheralList = [];
+  information.forEach((peripheral) => {
+    let newPeripheral = new Peripheral(
+      peripheral["PeripheralID"],
+      peripheral["ManufacturerID"],
+      peripheral["PlatformID"],
+      peripheral["GameID"],
+      peripheral["PeripheralName"],
+      peripheral["PeripheralType"],
+      peripheral["PeripheralProfile"],
+      peripheral["NumberShipped"],
+      peripheral["FirstReleased"]
+    );
+    peripheralList.push(newPeripheral);
+  });
+  return peripheralList;
+};
+
+GeneratePlatformList = (information) => {
+  let platformList = [];
+  information.forEach((platform) => {
+    let newPlatform = new Platform(
+      platform["PeripheralID"],
+      platform["ManufacturerID"],
+      platform["PlatformID"],
+      platform["GameID"],
+      platform["PeripheralName"],
+      platform["PeripheralType"],
+      platform["PeripheralProfile"],
+      platform["NumberShipped"],
+      platform["FirstReleased"]
+    );
+    platformList.push(newPlatform);
+  });
+  return platformList;
 };

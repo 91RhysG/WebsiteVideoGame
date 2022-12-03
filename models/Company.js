@@ -21,12 +21,10 @@ class Company {
     );
   };
 
-  toCard = () =>
-  {
-    let node = document.getElementById('mainContent')
-    console.log('inside tocard')
+  toCard = () => {
+    let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="cardLayout col-4 row outline">
+      <section class="cardLayout col-3 row">
         <div class="col">
           <div>Company Name: ${this.companyName}</div>
           <div>Founded: ${this.founded}</div>

@@ -14,7 +14,7 @@
     <script type='text/javascript' src='../models/Company.js'></script>
     <?php
     $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyName');
-    $information = $dbFunctions->ConvertToCompany($sqlResults);
+    $information = $dbFunctions->ConvertToList($sqlResults);
     ?>
 </head>
 
@@ -26,7 +26,7 @@
             LOREM
         </aside>
         <main class="col-8 outline container">
-            <h1>COMPANY PAGE</h1>
+            <h1 class="text-center">Companies</h1>
             <section id="mainContent" class="row align-items-start">
 
             </section>

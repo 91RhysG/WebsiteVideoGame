@@ -1,92 +1,101 @@
-class Peripheral
-{
-    constructor()
-    {
-        this.peripheralID = -1;
-        this.manufacturerID = -1;
-        this.platformID = -1;
-        this.videoGameID = -1;
-        this.perpipheralName = "No name";
-        this.peripheralType = "No genre";
-        this.peripheralProfile = "This is the game profile";
-        this.numberShipped = 0;
-        this.firstReleased = '1900';
-    }
+class Peripheral {
+  constructor(
+    peripheralID,
+    manufacturerID,
+    platformID,
+    videoGameID,
+    perpipheralName,
+    peripheralType,
+    peripheralProfile,
+    numberShipped,
+    firstReleased
+  ) {
+    this.peripheralID = peripheralID;
+    this.manufacturerID = manufacturerID;
+    this.platformID = platformID;
+    this.videoGameID = videoGameID;
+    this.perpipheralName = perpipheralName;
+    this.peripheralType = peripheralType;
+    this.peripheralProfile = peripheralProfile;
+    this.numberShipped = numberShipped;
+    this.firstReleased = firstReleased;
+  }
+  toString = () => {
+    document.writeln(
+      `Peripheral Name ${this.perpipheralName} and number shipped is ${this.numberShipped} <br>`
+    );
+  };
 
+  toCard = () => {
+    let node = document.getElementById("mainContent");
+    node.innerHTML += `
+      <section class="cardLayout col-3 row">
+        <div class="col">
+          <div>Peripheral Name: ${this.peripheralName}</div>
+          <div>First Released: ${this.firstReleased}</div>
+        </div>
+        <div class="col">
+          <div>Number Shipped: ${this.numberShipped}</div>
+          <div>Profile: ${this.peripheralProfile}</div>
+        </div>
+      </section>`;
+  };
 
-    //Set all
-    set PeripheralID(id)
-    {
-        this.peripheralID = id;
-    }
-    set ManufacturerID(id)
-    {
-        this.manufacturerID = -1;
-    }
-    set PlatformID(id)
-    {
-        this.platformID = id;
-    }
-    set VideoGameID(id)
-    {
-        this.videoGameID = id;
-    }
-    set PeripheralName(name)
-    {
-        this.PeripheralName = name;
-    }
-    set PeripheralType(type)
-    {
-        this.peripheralType = type;
-    }
-    set PeripheralProfile(profile)
-    {
-        this.peripheralProfile = profile;
-    }
-    set NumberShipped(numberShipped)
-    {
-        this.numberShipped = numberShipped;
-    }
-    set FirstReleased(firstReleased)
-    {
-        this.firstReleased = firstReleased;
-    }
+  //Set all
+  set PeripheralID(id) {
+    this.peripheralID = id;
+  }
+  set ManufacturerID(id) {
+    this.manufacturerID = -1;
+  }
+  set PlatformID(id) {
+    this.platformID = id;
+  }
+  set VideoGameID(id) {
+    this.videoGameID = id;
+  }
+  set PeripheralName(name) {
+    this.PeripheralName = name;
+  }
+  set PeripheralType(type) {
+    this.peripheralType = type;
+  }
+  set PeripheralProfile(profile) {
+    this.peripheralProfile = profile;
+  }
+  set NumberShipped(numberShipped) {
+    this.numberShipped = numberShipped;
+  }
+  set FirstReleased(firstReleased) {
+    this.firstReleased = firstReleased;
+  }
 
-    //Get all
-    get PeripheralID()
-    {
-        return this.peripheralID;
-    }
-    get ManufacturerID()
-    {
-        return this.manufacturerID;
-    }
-    get PlatformID()
-    {
-        return this.platformID;
-    }
-    get VideoGameID()
-    {
-        return this.videoGameID;
-    }
-    get PeripheralName()
-    {
-        return this.PeripheralName;
-    }
-    get PeripheralType()
-    {
-        return this.peripheralType;
-    }
-    get PeripheralProfile()
-    {
-        return this.peripheralProfile;
-    }
-    get NumberShipped()
-    {
-        return this.numberShipped;
-    }
-    get FirstReleased()
-    {
-        return this.firstReleased;
-    }
+  //Get all
+  get PeripheralID() {
+    return this.peripheralID;
+  }
+  get ManufacturerID() {
+    return this.manufacturerID;
+  }
+  get PlatformID() {
+    return this.platformID;
+  }
+  get VideoGameID() {
+    return this.videoGameID;
+  }
+  get PeripheralName() {
+    return this.PeripheralName;
+  }
+  get PeripheralType() {
+    return this.peripheralType;
+  }
+  get PeripheralProfile() {
+    return this.peripheralProfile;
+  }
+  get NumberShipped() {
+    return this.numberShipped;
+  }
+  get FirstReleased() {
+    return this.firstReleased;
+  }
 }

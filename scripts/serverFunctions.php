@@ -44,16 +44,13 @@ class ServerFunctions
         return $sqlQuery;
     }
 
-    function ConvertToCompany($sqlResults){
-        
-        $companyList = array();
+    function ConvertToList($sqlResults)
+    {
+        $returnList = array();
         while ($entry = $sqlResults->fetch())
         {
-            $companyList[] = $entry;
-            // echo    '<p>
-            //                 ' . $entry['CompanyName'] . '
-            //             </p>';
-        } 
-        return $companyList;
+            $returnList[] = $entry;
+        }
+        return $returnList;
     }
 }

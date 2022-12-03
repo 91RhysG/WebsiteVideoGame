@@ -21,7 +21,10 @@
             LOREM
         </aside>
         <main class="col-8 outline">
-            <h1>HOME PAGE</h1>
+            <h1 class="text-center">Welcome!</h1>
+            <p>
+                Site designed, coded, and planned by Rhys Gillham. That includes the horrific colour selections!
+            </p>
         </main>
         <aside class="col-2 outline">
             LOREM

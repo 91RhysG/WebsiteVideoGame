@@ -11,6 +11,12 @@
 
 <head>
     <?php include_once("../shared/head.php"); ?>
+    <script type='text/javascript' src='../models/Peripheral.js'></script>
+    <?php
+    $sqlResults = $dbFunctions->GetTableList($conn, 'Peripheral', '*', 'PeripheralName');
+    $information = $dbFunctions->ConvertToList($sqlResults);
+    ?>
+
 </head>
 
 <body>
@@ -21,15 +27,16 @@
             LOREM
         </aside>
         <main class="col-8 outline">
-            <h1>Peripheral PAGE</h1>
-            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Peripheral', '*', 'PeripheralName');
-            while ($entry = $sqlResults->fetch())
-            {
-                echo    '<p>
-                            ' . $entry['PeripheralName'] . '
-                        </p>';
-            } ?>
+            <h1 class="text-center">Peripherals</h1>
+            <section id="mainContent" class="row align-items-start">
 
+            </section>
+            <script type=text/javascript>
+                const peripheralList = GeneratePeripheralList(<?php echo json_encode($information); ?>);
+                peripheralList.forEach(peripheral => {
+                    peripheral.toCard()
+                });
+            </script>
         </main>
         <aside class="col-2 outline">
             LOREM

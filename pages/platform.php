@@ -7,10 +7,15 @@
 <meta name="description" content="Browse Platforms">
 <meta name="keywords" content="one, two, three">
 
-<title>Home Page</title>
+<title>Platform Page</title>
 
 <head>
     <?php include_once("../shared/head.php"); ?>
+    <script type='text/javascript' src='../models/Platform.js'></script>
+    <?php
+    $sqlResults = $dbFunctions->GetTableList($conn, 'Platform', '*', 'PlatformName');
+    $information = $dbFunctions->ConvertToList($sqlResults);
+    ?>
 </head>
 
 <body>
@@ -21,14 +26,17 @@
             LOREM
         </aside>
         <main class="col-8 outline">
-            <h1>Platform PAGE</h1>
-            <?php $sqlResults = $dbFunctions->GetTableList($conn, 'Platform', '*', 'PlatformName');
-            while ($entry = $sqlResults->fetch())
-            {
-                echo    '<p>
-                            ' . $entry['PlatformName'] . '
-                        </p>';
-            } ?>
+            <h1 class="text-center">Platforms</h1>
+            <section id="mainContent" class="row align-items-start">
+
+            </section>
+            <script type=text/javascript>
+                const platformList = GeneratePlatformList(<?php echo json_encode($information); ?>);
+                platformList.forEach(platform => {
+                    platform.toCard()
+                });
+            </script>
+
 
         </main>
         <aside class="col-2 outline">
