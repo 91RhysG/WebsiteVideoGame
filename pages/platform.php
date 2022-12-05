@@ -27,7 +27,7 @@
         </aside>
         <main class="col-8 outline">
             <h1 class="text-center">Platforms</h1>
-            <section id="mainContent" class="row align-items-start">
+            <section id="mainContent" class="container-fluid row justify-content-center">
 
             </section>
             <script type=text/javascript>

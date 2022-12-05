@@ -29,12 +29,12 @@ class Peripheral {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="cardLayout col-3 row">
-        <div class="col">
+      <section class="container card col row g-2">
+        <div class="col-6">
           <div>Peripheral Name: ${this.peripheralName}</div>
           <div>First Released: ${this.firstReleased}</div>
         </div>
-        <div class="col">
+        <div class="col-6">
           <div>Number Shipped: ${this.numberShipped}</div>
           <div>Profile: ${this.peripheralProfile}</div>
         </div>

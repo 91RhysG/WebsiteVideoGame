@@ -24,12 +24,12 @@ class Company {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="cardLayout col-3 row">
-        <div class="col">
+      <section class="container card col row g-2">
+        <div class="col-6">
           <div>Company Name: ${this.companyName}</div>
           <div>Founded: ${this.founded}</div>
         </div>
-        <div class="col">
+        <div class="col-6">
           <div>Logo: ${this.logoPath}</div>
           <div>Profile: ${this.CompanyProfile}</div>
         </div>

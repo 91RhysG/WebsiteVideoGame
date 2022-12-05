@@ -32,12 +32,12 @@ class Platform {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="cardLayout col-3 row">
-        <div class="col">
+      <section class="container card col row g-2">
+        <div class="col-6">
           <div>Platform Name: ${this.platformName}</div>
           <div>Number Shipped: ${this.numberShipped}</div>
         </div>
-        <div class="col">
+        <div class="col-6">
           <div>First Released: ${this.firstReleased}</div>
           <div>Profile: ${this.platformProfile}</div>
         </div>
