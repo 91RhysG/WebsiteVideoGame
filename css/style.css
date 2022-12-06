@@ -18,10 +18,25 @@ body {
     border: 0.01rem dashed bisque;
     border-radius: 1rem;
     flex-wrap:wrap;
-    min-width: 10rem;
-    max-width: 25rem;
+    min-width: 24rem;
+    max-width: 24rem;
 }
 
-.card:hover {
+.expandedCard {
+        margin: 0.1rem 0.1rem 1rem 0.1rem;
+            height: 8rem;
+            background-color: beige;
+            border: 0.01rem dashed bisque;
+            border-radius: 1rem;
+            flex-wrap: wrap;
+            min-width: 48rem;
+            max-width: 48rem;
+}
+
+.card:hover, .expandedCard:hover {
     background-color: aqua;
+}
+
+.logoImage{
+    width: 10rem;
 }

@@ -24,13 +24,15 @@ class Company {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="container card col row g-2">
+      <section id="${this.companyID}" class="container card col row g-2" onclick="CardSelected(${this.companyID});">
         <div class="col-6">
           <div>Company Name: ${this.companyName}</div>
           <div>Founded: ${this.founded}</div>
         </div>
         <div class="col-6">
-          <div>Logo: ${this.logoPath}</div>
+          <div>
+            <img  class="logoImage" src="${this.currentLogo}" alt="The logo for ${this.companyName}" >
+          </div>
           <div>Profile: ${this.CompanyProfile}</div>
         </div>
       </section>`;
@@ -57,8 +59,8 @@ class Company {
     this.founded = founded;
   }
 
-  set Logo(logoPath) {
-    this.currentLogo = logoPath;
+  set Logo(currentLogo) {
+    this.currentLogo = currentLogo;
   }
 
   //Get All

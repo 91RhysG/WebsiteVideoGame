@@ -32,7 +32,7 @@ class Platform {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="container card col row g-2">
+      <section id="${this.platformID}" class="container card col row g-2" onclick="CardSelected(${this.platformID});">
         <div class="col-6">
           <div>Platform Name: ${this.platformName}</div>
           <div>Number Shipped: ${this.numberShipped}</div>

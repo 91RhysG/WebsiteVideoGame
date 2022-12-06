@@ -30,7 +30,7 @@ class Game {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="container card col row g-2">
+      <section id="${this.videoGameID}" class="container card col row g-2" onclick="CardSelected(${this.videoGameID});">
         <div class="col-6">
           <div>Game Name: ${this.gameName}</div>
           <div>Number Shipped: ${this.numberShipped}</div>

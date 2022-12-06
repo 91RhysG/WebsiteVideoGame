@@ -29,7 +29,7 @@ class Peripheral {
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
-      <section class="container card col row g-2">
+      <section id="${this.peripheralID}" class="container card col row g-2" onclick="CardSelected(${this.peripheralID});">
         <div class="col-6">
           <div>Peripheral Name: ${this.peripheralName}</div>
           <div>First Released: ${this.firstReleased}</div>

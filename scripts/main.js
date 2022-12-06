@@ -36,6 +36,23 @@ function Connection()
 
 export { Connection };
 */
+
+AddCardListeners = () =>
+{
+  const cardList = document.getElementsByClassName("card");
+  for (let i = 0; i < cardList.length; i++)
+  {
+    cardList[i].addEventListener('click', CardSelected)
+  }
+}
+
+CardSelected = (cardSelected) =>
+{
+  let selectedCard = document.getElementById(`${cardSelected}`)
+  selectedCard.classList.toggle('card');
+  selectedCard.classList.toggle("expandedCard");
+}
+
 GenerateCompanyList = (information) => {
   let companyList = [];
   information.forEach((company) => {
