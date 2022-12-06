@@ -23,18 +23,44 @@ class Company {
 
   toCard = () => {
     let node = document.getElementById("mainContent");
+    let profileDetails = this.companyProfile;
+
+    if (this.companyProfile.length > 30)
+    {
+      profileDetails = this.companyProfile.slice(0, 30) + "...";
+    }
+
     node.innerHTML += `
-      <section id="${this.companyID}" class="container card col row g-2" onclick="CardSelected(${this.companyID});">
-        <div class="col-6">
-          <div>Company Name: ${this.companyName}</div>
+      <section id="${this.companyID}" class="container-fluid row card col-6 g-2" onclick="CardSelected(${this.companyID});">
+      <div class='col-12 row'>
+        <div class="col cardContent">
+          <div>
+            <h5>
+              ${this.companyName}
+            </h5>
+          </div>          
+          <div>
+            <p>
+              ${this.addressID}
+            </p>
+          </div>
           <div>Founded: ${this.founded}</div>
         </div>
-        <div class="col-6">
+        <div class="col-6 justify-content-center">
           <div>
             <img  class="logoImage" src="${this.currentLogo}" alt="The logo for ${this.companyName}" >
           </div>
-          <div>Profile: ${this.CompanyProfile}</div>
-        </div>
+        </div>      
+      </div>        
+      <div class="col row seperator">
+        <div>
+          <p class='profileDetails'>
+            ${profileDetails}
+          </p>
+          <p class='profileDetails hidden'>
+            ${this.companyProfile}
+          </p>
+      </div>
       </section>`;
   };
 

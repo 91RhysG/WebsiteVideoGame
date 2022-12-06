@@ -3,8 +3,31 @@ body {
     color: black;
 }
 
+p {
+    margin: 0;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1rem;
+    flex-wrap: nowrap;
+}
+
+.seperator {
+    border-top: 0.1rem solid white;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
 .outline {
     border: 2px solid black;
+}
+
+.hidden {
+    display: none;
 }
 
 #mainContent {
@@ -13,30 +36,45 @@ body {
 
 .card {
     margin: 0.1rem 0.1rem 1rem 0.1rem;
-    height: 8rem;
+    height: auto;
     background-color: beige;
     border: 0.01rem dashed bisque;
     border-radius: 1rem;
-    flex-wrap:wrap;
     min-width: 24rem;
     max-width: 24rem;
 }
 
 .expandedCard {
-        margin: 0.1rem 0.1rem 1rem 0.1rem;
-            height: 8rem;
-            background-color: beige;
-            border: 0.01rem dashed bisque;
-            border-radius: 1rem;
-            flex-wrap: wrap;
-            min-width: 48rem;
-            max-width: 48rem;
+    margin: 0.1rem 0.1rem 1rem 0.1rem;
+    background-color: beige;
+    border: 0.01rem dashed bisque;
+    border-radius: 1rem;
 }
 
-.card:hover, .expandedCard:hover {
+.card:hover,
+.expandedCard:hover {
     background-color: aqua;
 }
 
-.logoImage{
-    width: 10rem;
+.cardContent {
+    padding: 1rem 0.5rem 0 2rem;
+    min-height: 8rem;
+    max-height: 8rem;
+}
+
+.profileDetails {
+    padding: 1rem 0 1rem 0;
+}
+
+.expandedCard .logoImage {
+    padding: 1.5rem 1rem 1rem 0rem;
+    width: 100%;
+    max-width:none;
+    max-height: none;
+}
+
+.logoImage {
+    padding: 1.5rem 1rem 1rem 0rem;
+    max-height: 8rem;
+    max-width: 12rem;
 }

@@ -46,11 +46,18 @@ AddCardListeners = () =>
   }
 }
 
+//This needs to be able to be filtered to just the card selected.
 CardSelected = (cardSelected) =>
 {
   let selectedCard = document.getElementById(`${cardSelected}`)
   selectedCard.classList.toggle('card');
-  selectedCard.classList.toggle("expandedCard");
+  selectedCard.classList.toggle("expandedCard");  
+  
+  let profileDetails = selectedCard.getElementsByClassName("profileDetails");
+  for (let i = 0; i < profileDetails.length; i++)
+  {
+    profileDetails[i].classList.toggle('hidden');
+  }
 }
 
 GenerateCompanyList = (information) => {
