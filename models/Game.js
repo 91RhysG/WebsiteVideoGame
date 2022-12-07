@@ -27,6 +27,25 @@ class Game {
     );
   };
 
+  toTableBody = (elementToTarget) => {
+    let node = document.getElementById(elementToTarget);
+
+    node.innerHTML += `
+    <tr class="tableEntry">
+    <td>${this.videoGameID}</td>  
+    <td>${this.platformID}</td> 
+    <td>${this.developerID}</td>  
+    <td>${this.gamePublisherID}</td> 
+    <td>${this.gameName}</td> 
+    <td>${this.gameGenre}</td> 
+    <td>${this.gameProfile}</td> 
+    <td>${this.numberShipped}</td> 
+    <td>${this.firstReleased}</td> 
+    </td> 
+    </tr>
+    `;
+  };
+
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `

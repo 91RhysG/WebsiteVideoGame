@@ -21,12 +21,29 @@ class Company {
     );
   };
 
+  toTableBody = (elementToTarget) => {
+    let node = document.getElementById(elementToTarget);
+
+    node.innerHTML += `
+    <tr class="tableEntry">
+    <td>${this.companyID}</td>  
+    <td>${this.companyName}</td> 
+    <td>${this.addressID}</td> 
+    <td>${this.companyProfile.slice(0, 10)}</td> 
+    <td>${this.founded}</td> 
+    <td><img height="20rem" src="${this.currentLogo}" alt="The logo for ${
+      this.companyName
+    }">
+    </td> 
+    </tr>
+    `;
+  };
+
   toCard = () => {
     let node = document.getElementById("mainContent");
     let profileDetails = this.companyProfile;
 
-    if (this.companyProfile.length > 30)
-    {
+    if (this.companyProfile.length > 30) {
       profileDetails = this.companyProfile.slice(0, 30) + "...";
     }
 

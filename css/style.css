@@ -52,7 +52,7 @@ h5 {
 }
 
 .card:hover,
-.expandedCard:hover {
+.expandedCard:hover, .tableEntry:hover {
     background-color: aqua;
 }
 

@@ -118,17 +118,34 @@ GeneratePlatformList = (information) => {
   let platformList = [];
   information.forEach((platform) => {
     let newPlatform = new Platform(
-      platform["PeripheralID"],
-      platform["ManufacturerID"],
       platform["PlatformID"],
-      platform["GameID"],
-      platform["PeripheralName"],
-      platform["PeripheralType"],
-      platform["PeripheralProfile"],
+      platform["CompanyID"],
+      platform["ManufacturerID"],
+      platform["PlatformName"],
+      platform["PlatformModel"],
+      platform["PlatformFamily"],
+      platform["PlatformLogo"],
       platform["NumberShipped"],
-      platform["FirstReleased"]
+      platform["FirstReleased"],
+      platform["PlatformProfile"]
     );
     platformList.push(newPlatform);
   });
   return platformList;
+};
+
+GenerateAddressList = (information) => {
+  let addressList = [];
+  information.forEach((address) => {
+    let newAddress = new Address(
+      address["AddressID"],
+      address["StreetNumber"],
+      address["StreetName"],
+      address["AddState"],
+      address["Country"],
+      address["Code"]
+    );
+    addressList.push(newAddress);
+  });
+  return addressList;
 };

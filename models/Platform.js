@@ -13,7 +13,7 @@ class Platform {
   ) {
     this.platformID = platformID;
     this.companyID = companyID;
-    this.manufacturerID = companyID;
+    this.manufacturerID = manufacturerID;
     this.platformName = platformName;
     this.platformModel = platformModel;
     this.platformFamily = platformFamily;
@@ -27,6 +27,28 @@ class Platform {
     document.writeln(
       `Company Name ${this.gameName} and has shipped ${this.numberShipped} <br>`
     );
+  };
+
+  toTableBody = (elementToTarget) => {
+    let node = document.getElementById(elementToTarget);
+
+    node.innerHTML += `
+    <tr class="tableEntry">
+    <td>${this.platformID}</td>  
+    <td>${this.companyID}</td> 
+    <td>${this.manufacturerID}</td>  
+    <td>${this.platformName}</td> 
+    <td>${this.platformModel}</td> 
+    <td>${this.platformFamily}</td> 
+    <td>
+      <img height="20rem" src="${this.platformLogo}" alt="The image for ${this.platformName}">
+    </td> 
+    <td>${this.numberShipped}</td> 
+    <td>${this.firstReleased}</td> 
+    <td>${this.platformProfile}</td> 
+    </td> 
+    </tr>
+    `;
   };
 
   toCard = () => {

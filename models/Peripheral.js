@@ -4,7 +4,7 @@ class Peripheral {
     manufacturerID,
     platformID,
     videoGameID,
-    perpipheralName,
+    peripheralName,
     peripheralType,
     peripheralProfile,
     numberShipped,
@@ -14,7 +14,7 @@ class Peripheral {
     this.manufacturerID = manufacturerID;
     this.platformID = platformID;
     this.videoGameID = videoGameID;
-    this.perpipheralName = perpipheralName;
+    this.peripheralName = peripheralName;
     this.peripheralType = peripheralType;
     this.peripheralProfile = peripheralProfile;
     this.numberShipped = numberShipped;
@@ -22,8 +22,27 @@ class Peripheral {
   }
   toString = () => {
     document.writeln(
-      `Peripheral Name ${this.perpipheralName} and number shipped is ${this.numberShipped} <br>`
+      `Peripheral Name ${this.peripheralName} and number shipped is ${this.numberShipped} <br>`
     );
+  };
+
+  toTableBody = (elementToTarget) => {
+    let node = document.getElementById(elementToTarget);
+
+    node.innerHTML += `
+    <tr class="tableEntry">
+    <td>${this.peripheralID}</td>  
+    <td>${this.manufacturerID}</td> 
+    <td>${this.platformID}</td>  
+    <td>${this.videoGameID}</td> 
+    <td>${this.peripheralName}</td> 
+    <td>${this.peripheralType}</td> 
+    <td>${this.peripheralProfile.slice(0, 10)}</td> 
+    <td>${this.numberShipped}</td> 
+    <td>${this.firstReleased}</td> 
+    </td> 
+    </tr>
+    `;
   };
 
   toCard = () => {
