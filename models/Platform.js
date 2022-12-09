@@ -33,7 +33,7 @@ class Platform {
     let node = document.getElementById(elementToTarget);
 
     node.innerHTML += `
-    <tr class="tableEntry">
+    <tr id="platformID${this.platformID}" class="tableEntry">
     <td>${this.platformID}</td>  
     <td>${this.companyID}</td> 
     <td>${this.manufacturerID}</td>  

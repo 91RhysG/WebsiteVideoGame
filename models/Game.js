@@ -31,7 +31,7 @@ class Game {
     let node = document.getElementById(elementToTarget);
 
     node.innerHTML += `
-    <tr class="tableEntry">
+    <tr id="gameID${this.videoGameID}" class="tableEntry">
     <td>${this.videoGameID}</td>  
     <td>${this.platformID}</td> 
     <td>${this.developerID}</td>  

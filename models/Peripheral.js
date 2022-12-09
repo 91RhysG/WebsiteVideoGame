@@ -30,7 +30,7 @@ class Peripheral {
     let node = document.getElementById(elementToTarget);
 
     node.innerHTML += `
-    <tr class="tableEntry">
+    <tr id="peripheralID${this.peripheralID}" class="tableEntry">
     <td>${this.peripheralID}</td>  
     <td>${this.manufacturerID}</td> 
     <td>${this.platformID}</td>  

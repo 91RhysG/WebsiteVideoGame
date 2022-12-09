@@ -37,39 +37,51 @@ function Connection()
 export { Connection };
 */
 
-AddCardListeners = () =>
-{
+AddCardListeners = () => {
   const cardList = document.getElementsByClassName("card");
-  for (let i = 0; i < cardList.length; i++)
-  {
-    cardList[i].addEventListener('click', CardSelected)
+  for (let i = 0; i < cardList.length; i++) {
+    cardList[i].addEventListener("click", CardSelected);
   }
-}
+};
+
+AddTableListeners = () => {
+  const entryList = document.getElementsByClassName("tableEntry");
+  for (let i = 0; i < entryList.length; i++) {
+    entryList[i].addEventListener("click", EntrySelected);
+    console.log("added listener");
+  }
+};
 
 //This needs to be able to be filtered to just the card selected.
-CardSelected = (cardSelected) =>
-{
-  let selectedCard = document.getElementById(`${cardSelected}`)
-  selectedCard.classList.toggle('card');
-  selectedCard.classList.toggle("expandedCard");  
-  
+CardSelected = (cardSelected) => {
+  let selectedCard = document.getElementById(`${cardSelected}`);
+  console.log(cardSelected);
+  selectedCard.classList.toggle("card");
+  selectedCard.classList.toggle("expandedCard");
+
   let profileDetails = selectedCard.getElementsByClassName("profileDetails");
-  for (let i = 0; i < profileDetails.length; i++)
-  {
-    profileDetails[i].classList.toggle('hidden');
+  for (let i = 0; i < profileDetails.length; i++) {
+    profileDetails[i].classList.toggle("hidden");
   }
-}
+};
+
+EntrySelected = (entrySelected) => {
+  // const name = entrySelected.path[1].getElementsByClassName("name")[0].innerText;
+  // console.log(name);
+  // window.location.href = `adminForm.php?name=${name}`;
+  console.log('succesS?')
+};
 
 GenerateCompanyList = (information) => {
   let companyList = [];
   information.forEach((company) => {
     let newCompany = new Company(
-      company['CompanyID'],
-      company['CompanyName'],
-      company['AddressID'],
-      company['CompanyProfile'],
-      company['Founded'],
-      company['CurrentLogo']
+      company["CompanyID"],
+      company["CompanyName"],
+      company["AddressID"],
+      company["CompanyProfile"],
+      company["Founded"],
+      company["CurrentLogo"]
     );
     companyList.push(newCompany);
   });

@@ -21,13 +21,14 @@ class Company {
     );
   };
 
-  toTableBody = (elementToTarget) => {
+  toTableBody = (elementToTarget, formTarget) => {
     let node = document.getElementById(elementToTarget);
+    let forms = document.getElementById(formTarget);
 
     node.innerHTML += `
-    <tr class="tableEntry">
+    <tr id="companyID${this.companyID}" class="tableEntry" form="formCompany${this.companyID}">
     <td>${this.companyID}</td>  
-    <td>${this.companyName}</td> 
+    <td class='name'>${this.companyName}</td> 
     <td>${this.addressID}</td> 
     <td>${this.companyProfile.slice(0, 10)}</td> 
     <td>${this.founded}</td> 
@@ -35,8 +36,9 @@ class Company {
       this.companyName
     }">
     </td> 
-    </tr>
+    </tr> 
     `;
+    forms.innerHTML += `<form method="POST" id="formCompany${this.companyID}"></form>`;
   };
 
   toCard = () => {

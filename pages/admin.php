@@ -34,9 +34,6 @@
     //Get all platform data
     $sqlResults = $dbFunctions->GetTableList($conn, 'Platform', '*', 'PlatformID');
     $platformInformation = $dbFunctions->ConvertToList($sqlResults);
-
-
-
     //Get all game data
     $sqlResults = $dbFunctions->GetTableList($conn, 'Game', '*', 'GameID');
     $gameInformation = $dbFunctions->ConvertToList($sqlResults);
@@ -49,6 +46,8 @@
 
 <body>
     <?php include_once("../shared/navbar.php"); ?>
+
+    <div id="formLocation"></div>
     <div class="row">
         <aside class="col-2 outline">
             LOREM
@@ -90,8 +89,9 @@
                                 <script type=text/javascript>
                                     const companyList = GenerateCompanyList(<?php echo json_encode($companyInformation); ?>);
                                     companyList.forEach(company => {
-                                        company.toTableBody("companyTableBody");
+                                        company.toTableBody("companyTableBody", "formLocation");
                                     });
+                                    //AddTableListeners();
                                 </script>
                             </tbody>
                         </table>
@@ -196,15 +196,11 @@
                     </div>
                 </div>
             </section>
-            <script type=text/javascript>
-            </script>
         </main>
         <aside class="col-2 outline">
             LOREM
         </aside>
     </div>
-
-
     <?php include_once("../shared/footer.php"); ?>
 
 </body>

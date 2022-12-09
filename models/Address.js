@@ -12,7 +12,7 @@ class Address {
     let node = document.getElementById(elementToTarget);
 
       node.innerHTML += `
-    <tr class="tableEntry">
+    <tr id="addressID${this.addressID}" class="tableEntry">
     <td>${this.addressID}</td>  
     <td>${this.streetNumber}</td> 
     <td>${this.streetName}</td>  
