@@ -1,4 +1,11 @@
 /*
+Rhys Gillham
+
+Contains all of the JavaScript code that does not fall neatly within a model or may be required across many models.
+*/
+
+//#region Node.js Code
+/*
 
                     ----------- CONNECTION TO NODE CODE -----------
 
@@ -37,6 +44,9 @@ function Connection()
 export { Connection };
 */
 
+//#endregion
+
+//Adds listeners to any element that is designated with the card CSS class.
 AddCardListeners = () => {
   const cardList = document.getElementsByClassName("card");
   for (let i = 0; i < cardList.length; i++) {
@@ -44,18 +54,17 @@ AddCardListeners = () => {
   }
 };
 
+//Adds listeners to any element that is designated with the tableEntry CSS class.
 AddTableListeners = () => {
   const entryList = document.getElementsByClassName("tableEntry");
   for (let i = 0; i < entryList.length; i++) {
-    entryList[i].addEventListener("click", EntrySelected);
-    console.log("added listener");
+    entryList[i].addEventListener("click", EntrySelected); //Does not seem to like taking parameters, passes the full event.
   }
 };
 
-//This needs to be able to be filtered to just the card selected.
+//Takes in the event, selects the correct card via the id and toggles styling based on expectations.
 CardSelected = (cardSelected) => {
   let selectedCard = document.getElementById(`${cardSelected}`);
-  console.log(cardSelected);
   selectedCard.classList.toggle("card");
   selectedCard.classList.toggle("expandedCard");
 
@@ -65,13 +74,57 @@ CardSelected = (cardSelected) => {
   }
 };
 
+//When a user selects an entry it will load values into cookies to be used at a later stage, it will then direct to the adminForm.php.
+// ********** Will have to be moved into an admin only JS file that only loads once authorised. **********
 EntrySelected = (entrySelected) => {
-  // const name = entrySelected.path[1].getElementsByClassName("name")[0].innerText;
-  // console.log(name);
-  // window.location.href = `adminForm.php?name=${name}`;
-  console.log('succesS?')
+  //The image tag is nested differently, this throws off the setting of tables and values, must be traversed one layer deeper.
+  if (entrySelected.path[0].nodeName === "IMG") {
+    document.cookie = `table=${
+      entrySelected.path[2].getElementsByClassName("table")[0].innerText
+    }`;
+    document.cookie = `id=${
+      entrySelected.path[2].getElementsByClassName("id")[0].innerText
+    }`;
+  } else {
+    document.cookie = `table=${
+      entrySelected.path[1].getElementsByClassName("table")[0].innerText
+    }`;
+    document.cookie = `id=${
+      entrySelected.path[1].getElementsByClassName("id")[0].innerText
+    }`;
+  }
+  window.location.href = "adminForm.php";
 };
 
+//When the adminForm.php is loaded this will populate the correct form for the information that is to be altered.
+// ********** Will have to be moved into an admin only JS file that only loads once authorised. **********
+GenerateForm = (elementToTarget, tableOriginated, information) => {
+  switch (tableOriginated) {
+    case "Company":
+      let company = new Company(
+        information[0]["CompanyID"],
+        information[0]["CompanyName"],
+        information[0]["AddressID"],
+        information[0]["CompanyProfile"],
+        information[0]["Founded"],
+        information[0]["CurrentLogo"]
+      );
+      company.toForm(elementToTarget);
+      break;
+    case "Address":
+      break;
+    case "Game":
+      break;
+    case "Peripheral":
+      break;
+    case "Platform":
+      break;
+    default:
+      break;
+  }
+};
+
+//Will accept data and then unpack it into a Company model, may need to add validation.
 GenerateCompanyList = (information) => {
   let companyList = [];
   information.forEach((company) => {
@@ -88,6 +141,7 @@ GenerateCompanyList = (information) => {
   return companyList;
 };
 
+//Will accept data and then unpack it into a Game model, may need to add validation.
 GenerateGameList = (information) => {
   let gameList = [];
   information.forEach((game) => {
@@ -107,6 +161,7 @@ GenerateGameList = (information) => {
   return gameList;
 };
 
+//Will accept data and then unpack it into a Peripheral model, may need to add validation.
 GeneratePeripheralList = (information) => {
   let peripheralList = [];
   information.forEach((peripheral) => {
@@ -126,6 +181,7 @@ GeneratePeripheralList = (information) => {
   return peripheralList;
 };
 
+//Will accept data and then unpack it into a Platform model, may need to add validation.
 GeneratePlatformList = (information) => {
   let platformList = [];
   information.forEach((platform) => {
@@ -146,6 +202,8 @@ GeneratePlatformList = (information) => {
   return platformList;
 };
 
+//Will accept data and then unpack it into a Address model, may need to add validation.
+//********** Currently not used and not tested **********
 GenerateAddressList = (information) => {
   let addressList = [];
   information.forEach((address) => {

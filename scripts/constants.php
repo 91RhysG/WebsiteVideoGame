@@ -1,4 +1,9 @@
 <?php
+/*
+Rhys Gillham
+
+This model contains constants, for testing purposes only.
+*/
 class Constants
 {
     public static $host = 'localhost';

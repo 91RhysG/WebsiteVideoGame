@@ -1,4 +1,11 @@
+/*
+Rhys Gillham
+
+This is the model that corresponds with a Company and contains all methods and properties of one.
+The model can unpack itself to a form, list, or card as required to enable for one location to make changes. There are setters and getters however may be removed at a later date.
+*/
 class Company {
+  //The base constructor for a Company.
   constructor(
     companyID,
     companyName,
@@ -15,20 +22,49 @@ class Company {
     this.currentLogo = currentLogo;
   }
 
-  toString = () => {
-    document.writeln(
-      `Company Name ${this.companyName} and founded in ${this.founded} <br>`
-    );
+  //When called, it will target an id to attempt to insert a form into.
+  // ********** Currently not finished **********
+  toForm = (elementToTarget) => {
+    let node = document.getElementById(elementToTarget);
+    node.innerHTML = `
+    <div class="row">
+    <label>ID</label>
+      <input value="${this.companyID}">
+    </div>
+    <div class="row">
+    <label>Name</label>
+      <input value="${this.companyName}">
+    </div>
+    <div class="row">
+    <label>Address ID</label>
+      <input value="${this.addressID}">
+    </div>
+    <div class="row">
+    <label>Profile</label>
+      <input value="${this.companyProfile}">
+    </div>
+    <div class="row">
+    <label>Founded</label>
+      <input value="${this.founded}">
+    </div>
+    <div class="row">
+    <label>Logo URL</label>
+      <input value="${this.currentLogo}">
+    </div>
+    `;
   };
 
-  toTableBody = (elementToTarget, formTarget) => {
+  //When called, it will target an id to attempt to insert a row of data into a table.
+  toTableBody = (elementToTarget) => {
     let node = document.getElementById(elementToTarget);
-    let forms = document.getElementById(formTarget);
 
     node.innerHTML += `
-    <tr id="companyID${this.companyID}" class="tableEntry" form="formCompany${this.companyID}">
-    <td>${this.companyID}</td>  
-    <td class='name'>${this.companyName}</td> 
+    <tr id="companyID${this.companyID}" class="tableEntry" form="formCompany${
+      this.companyID
+    }">
+    <td class="table" hidden>Company</td>
+    <td class='id'>${this.companyID}</td>  
+    <td>${this.companyName}</td> 
     <td>${this.addressID}</td> 
     <td>${this.companyProfile.slice(0, 10)}</td> 
     <td>${this.founded}</td> 
@@ -38,13 +74,14 @@ class Company {
     </td> 
     </tr> 
     `;
-    forms.innerHTML += `<form method="POST" id="formCompany${this.companyID}"></form>`;
   };
 
+  //When called, it will attempt to insert a card into an id called mainContent, this is the designated id for the middle of a page.
   toCard = () => {
     let node = document.getElementById("mainContent");
     let profileDetails = this.companyProfile;
 
+    // ********** This currently does not catch slicing issues **********
     if (this.companyProfile.length > 30) {
       profileDetails = this.companyProfile.slice(0, 30) + "...";
     }
@@ -83,7 +120,8 @@ class Company {
       </section>`;
   };
 
-  //Set all
+  //#region Get and Set
+  //Set All
   set CompanyID(companyID) {
     this.companyID = companyID;
   }
@@ -132,4 +170,6 @@ class Company {
   get Logo() {
     return this.currentLogo;
   }
+
+  //#endregion
 }

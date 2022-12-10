@@ -1,4 +1,9 @@
 <?php
+/*
+Rhys Gillham
+
+This is a script that is used to determine if strings are valid.
+*/
 
 class InputChecker
 {

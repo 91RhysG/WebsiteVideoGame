@@ -1,4 +1,11 @@
+/*
+Rhys Gillham
+
+This is the model that corresponds with a Platform and contains all methods and properties of one.
+The model can unpack itself to a form, list, or card as required to enable for one location to make changes. There are setters and getters however may be removed at a later date.
+*/
 class Platform {
+  //The base constructor for a Company.
   constructor(
     platformID,
     companyID,
@@ -23,12 +30,7 @@ class Platform {
     this.platformProfile = platformProfile;
   }
 
-  toString = () => {
-    document.writeln(
-      `Company Name ${this.gameName} and has shipped ${this.numberShipped} <br>`
-    );
-  };
-
+  //When called, it will target an id to attempt to insert a row of data into a table.
   toTableBody = (elementToTarget) => {
     let node = document.getElementById(elementToTarget);
 
@@ -51,6 +53,10 @@ class Platform {
     `;
   };
 
+  /*
+  When called, it will attempt to insert a card into an id called mainContent, this is the designated id for the middle of a page.
+   ******************* Formatting of the card is off *******************
+   */
   toCard = () => {
     let node = document.getElementById("mainContent");
     node.innerHTML += `
@@ -66,6 +72,7 @@ class Platform {
       </section>`;
   };
 
+  //#region Get and Set
   //Set all
   set PlatformID(platformID) {
     this.platformID = platformID;
@@ -147,4 +154,5 @@ class Platform {
   get PlatformProfile() {
     return this.platformProfile;
   }
+  //#endregion
 }

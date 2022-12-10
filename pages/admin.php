@@ -1,19 +1,24 @@
 <?php
+/*
+Rhys Gillham
 
-
+This page displays all information in a list format, if selected it will store cookies to allow for a more detailed page to be populate and changes made if the user requests them.
+Primarily focused on giving an overview of all elements on the website with minimal styling to allow for rapid consumption.
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <meta name="description" content="Admin Tools">
 <meta name="keywords" content="one, two, three">
 
-<title>Home Page</title>
+<title>Admin Page</title>
 
 <head>
     <?php
     include_once("../shared/head.php");
-    include_once("../scripts/adminTools.php");
     ?>
+
+    <!-- Imports all models available for the website. -->
     <script type='text/javascript' src="../models/Company.js">
     </script>
     <script type='text/javascript' src="../models/Address.js">
@@ -24,7 +29,9 @@
     </script>
     <script type='text/javascript' src="../models/Peripheral.js">
     </script>
+
     <?php
+    #region Gets all data from the db - this might be able to be moved into serverFunctions.php
     //Get all company data
     $sqlResults = $dbFunctions->GetTableList($conn, 'Company', '*', 'CompanyID');
     $companyInformation = $dbFunctions->ConvertToList($sqlResults);
@@ -40,6 +47,7 @@
     //Get all peripheral data
     $sqlResults = $dbFunctions->GetTableList($conn, 'Peripheral', '*', 'PeripheralID');
     $peripheralInformation = $dbFunctions->ConvertToList($sqlResults);
+    #endregion
     ?>
 </head>
 
@@ -77,6 +85,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col" hidden>Table</th>
                                     <th scope="col">Company ID</th>
                                     <th scope="col">Company Name</th>
                                     <th scope="col">Address ID</th>
@@ -91,7 +100,7 @@
                                     companyList.forEach(company => {
                                         company.toTableBody("companyTableBody", "formLocation");
                                     });
-                                    //AddTableListeners();
+                                    AddTableListeners();
                                 </script>
                             </tbody>
                         </table>

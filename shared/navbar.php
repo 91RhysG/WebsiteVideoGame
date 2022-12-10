@@ -1,8 +1,10 @@
 <?php
+/*
+Rhys Gillham
 
+This is the partial render for the navbar of each webpage, adjustments need to be made to accept log ins.
+*/
 ?>
-
-
 <nav class="">
     <ul class="nav justify-content-center ">
         <li class="nav-item">

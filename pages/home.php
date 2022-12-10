@@ -1,14 +1,16 @@
 <?php
+/*
+Rhys Gillham
 
-
+The home page for the website, this is going to be updated last.
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <meta name="description" content="Home Page">
 <meta name="keywords" content="one, two, three">
 
-<title>Home Page</title>
-
+<title>Home</title>
 <head>
     <?php include_once("../shared/head.php"); ?>
 </head>
@@ -30,10 +32,7 @@
             LOREM
         </aside>
     </div>
-
-
     <?php include_once("../shared/footer.php"); ?>
-
 </body>
 
 </html>
