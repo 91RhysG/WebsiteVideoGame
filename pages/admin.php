@@ -48,6 +48,13 @@ Primarily focused on giving an overview of all elements on the website with mini
     $sqlResults = $dbFunctions->GetTableList($conn, 'Peripheral', '*', 'PeripheralID');
     $peripheralInformation = $dbFunctions->ConvertToList($sqlResults);
     #endregion
+
+    if(isset($_POST['idValue'])){
+        echo "<script>console.log('updated form posted.')</script>";
+    }
+    else{
+        echo "<script>console.log('updated form not posted.')</script>";
+    }
     ?>
 </head>
 

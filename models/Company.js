@@ -23,34 +23,55 @@ class Company {
   }
 
   //When called, it will target an id to attempt to insert a form into.
-  // ********** Currently not finished **********
+  // ********** Currently not finished -> May be able to change to appending elements. **********
+  // ********** Look into submitting full form as JSON and change a title value to show updated. **********
   toForm = (elementToTarget) => {
     let node = document.getElementById(elementToTarget);
     node.innerHTML = `
-    <div class="row">
-    <label>ID</label>
-      <input value="${this.companyID}">
+    <form action="admin.php" method="post" id="updatedForm" name="updatedForm">
+    <div class="row mb-3">
+      <label for="idValue" class="col-sm-2 col-form-label" name="idValue">ID</label>
+      <div class="col-sm-10">
+        <input id="idValue" name="idValue" type="text" class="form-control-plaintext" hidden value="${this.companyID}">
+      </div>      
     </div>
-    <div class="row">
-    <label>Name</label>
-      <input value="${this.companyName}">
+    <div class="row mb-3">
+      <label for="nameValue" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input id="nameValue" name="nameValue" type="text" class="form-control" value="${this.companyName}">
+      </div>      
     </div>
-    <div class="row">
-    <label>Address ID</label>
-      <input value="${this.addressID}">
+    <div class="row mb-3">
+      <label for="addressValue" class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-10">
+        <input id="addressValue" name="addressValue" type="text" class="form-control" value="${this.addressID}">
+      </div>      
     </div>
-    <div class="row">
-    <label>Profile</label>
-      <input value="${this.companyProfile}">
+    <div class="row mb-3">
+      <label for="profileValue" class="col-sm-2 col-form-label">Profile</label>
+      <div class="col-sm-10">
+        <textarea id="profileValue" name="profileValue" type="text" class="form-control" rows="10">
+        ${this.companyProfile}
+        </textarea>
+      </div>      
     </div>
-    <div class="row">
-    <label>Founded</label>
-      <input value="${this.founded}">
+    <div class="row mb-3">
+      <label for="foundedValue" class="col-sm-2 col-form-label">Founded</label>
+      <div class="col-sm-10">
+        <input id="foundedValue" name="foundedValue" type="text" class="form-control" value="${this.founded}">
+      </div>      
     </div>
-    <div class="row">
-    <label>Logo URL</label>
-      <input value="${this.currentLogo}">
+    <div class="row mb-3">
+      <label for="logoValue" class="col-sm-2 col-form-label">Logo</label>
+      <div class="col-sm-10">
+        <input id="logoValue" name="logoValue" type="text" class="form-control" value="${this.currentLogo}">
+      </div>      
     </div>
+    <div class="col-12 mb-3 d-md-flex justify-content-md-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    
+    </form>
     `;
   };
 
