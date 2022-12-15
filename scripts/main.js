@@ -128,6 +128,8 @@ PrintAll = () =>{
   console.log('printing all!');
 }
 
+
+
 //Will accept data and then unpack it into a Company model, may need to add validation.
 GenerateCompanyList = (information) => {
   let companyList = [];

@@ -49,11 +49,8 @@ Primarily focused on giving an overview of all elements on the website with mini
     $peripheralInformation = $dbFunctions->ConvertToList($sqlResults);
     #endregion
 
-    if(isset($_POST['idValue'])){
-        echo "<script>console.log('updated form posted.')</script>";
-    }
-    else{
-        echo "<script>console.log('updated form not posted.')</script>";
+    if(!empty($_POST) && isset($_COOKIE['table'])){
+        $dbFunctions->SubmitDatabaseRequest($conn, $_COOKIE['table'], $_POST);
     }
     ?>
 </head>

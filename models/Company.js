@@ -30,47 +30,44 @@ class Company {
     node.innerHTML = `
     <form action="admin.php" method="post" id="updatedForm" name="updatedForm">
     <div class="row mb-3">
-      <label for="idValue" class="col-sm-2 col-form-label" name="idValue">ID</label>
+      <label for="idValue" class="col-sm-2 col-form-label" name="idValue" hidden>ID</label>
       <div class="col-sm-10">
-        <input id="idValue" name="idValue" type="text" class="form-control-plaintext" hidden value="${this.companyID}">
+        <input id="idValue" name="idValue" type="text" class="form-control-plaintext" hidden required value="${this.companyID}">
       </div>      
     </div>
     <div class="row mb-3">
       <label for="nameValue" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input id="nameValue" name="nameValue" type="text" class="form-control" value="${this.companyName}">
+        <input id="nameValue" name="nameValue" type="text" class="form-control" required value="${this.companyName}">
       </div>      
     </div>
     <div class="row mb-3">
       <label for="addressValue" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
-        <input id="addressValue" name="addressValue" type="text" class="form-control" value="${this.addressID}">
+        <input id="addressValue" name="addressValue" type="text" class="form-control" required value="${this.addressID}">
       </div>      
     </div>
     <div class="row mb-3">
       <label for="profileValue" class="col-sm-2 col-form-label">Profile</label>
       <div class="col-sm-10">
-        <textarea id="profileValue" name="profileValue" type="text" class="form-control" rows="10">
-        ${this.companyProfile}
-        </textarea>
+        <textarea id="profileValue" name="profileValue" type="text" class="form-control" required rows="10" value="">${this.companyProfile}</textarea>
       </div>      
     </div>
     <div class="row mb-3">
       <label for="foundedValue" class="col-sm-2 col-form-label">Founded</label>
       <div class="col-sm-10">
-        <input id="foundedValue" name="foundedValue" type="text" class="form-control" value="${this.founded}">
+        <input id="foundedValue" name="foundedValue" type="text" class="form-control" required value="${this.founded}">
       </div>      
     </div>
     <div class="row mb-3">
       <label for="logoValue" class="col-sm-2 col-form-label">Logo</label>
       <div class="col-sm-10">
-        <input id="logoValue" name="logoValue" type="text" class="form-control" value="${this.currentLogo}">
+        <input id="logoValue" name="logoValue" type="text" class="form-control" required value="${this.currentLogo}">
       </div>      
     </div>
     <div class="col-12 mb-3 d-md-flex justify-content-md-center">
       <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    
+    </div>    
     </form>
     `;
   };
